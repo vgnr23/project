@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url("https://wallpapercave.com/wp/YsmdCUB.jpg") no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(5px);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.43);
+      padding:30px 50px;
+      border-radius: 10px;
+      
+     
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    form {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="password"] {
+      width: 200px;
+      padding:5px;
+      height: 2em;
+
+      border-radius: 10px;
+      border:none;
+    }
+    
+    #submitbtn
+    {
+    height: 3em;
+    margin-top:10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    }
+    #submitbtn:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+    }
+
+    #userInfo {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    #userInfo p {
+      margin-bottom: 10px;
+    }
+/* 
+    #updateButton {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    } */
+
+    #updatebutton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 12px;
+        gap: 8px;
+        height: 36px;
+        width: 220px;
+        border: none;
+        background: #020a39a4;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .lable {
+        line-height: 20px;
+        font-size: 17px;
+        color:#fff;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+    }
+
+    #updatebutton:hover {
+        background: #0ca5e1e2;
+    }
+    #updatebutton:hover .lable{
+        color:#fff;
+    }
+
+    #updatebutton:hover .svg-icon {
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    #backbtn {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    margin-top:10px;
+    }
+
+    #backbtn > svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+    }
+
+    #backbtn:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+    }
+
+    #backbtn:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+    #backbtn1{
+        border:none;
+        border-radius: 10px;
+        margin-top:18px;
+        height: 3em;
+        width:50px;
+    }
+    #backbtn1:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+    }
+
+    #backbtn1:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+  
+    <form id="updateForm" style="display:none;">
+      <h1>Update Password</h1>
+      <div style="margin-bottom:10px">
+        <label class="label-agree-term error_message" style="color: red;display: none;"></label>
+       </div>
+
+      <label for="oldPassword">Old Password</label>
+      <input type="password" name="oldpassword" id="oldPassword" required><br><br>
+      
+      <label for="newPassword">New Password</label>
+      <input type="password" name="newpassword" id="newPassword" required><br><br>
+      
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" name="confirmpassword" id="confirmPassword" required><br><br>
+      
+      
+      <div class="buttons">
+        <input type="button" id="submitbtn" value="Update Password" onclick="changepassword()">
+        <button id="backbtn" onclick="hideform()">
+            <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+            <span>Back</span>
+          </button>
+      </div>
+      <div style="margin-top:5px;">
+        <label class="label-agree-term" id="success_message" style="color: green;display: none;"></label>
+      </div>
+      <!-- <input type="button" value="Back" id onclick="hide()"> -->
+    </form>
+    
+    <div id="userInfo">
+      <h1>My Profile</h1>
+      <p>Username: <span id="username">{{username}}</span></p>
+      <p>Email: <span id="email">{{email}}</span></p>
+      <!-- <button id="updateButton">Update Password</button> -->
+      <button id="updatebutton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" class="svg-icon"><g stroke-width="1.5" stroke-linecap="round" stroke="#fff"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
+        <span class="lable">Change Password</span>
+      </button>
+      <a href="/chatbot" style="text-decoration:none;text-align: center;">
+      <button id="backbtn1">
+        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+      </button>
+    </a>
+    </div>
+  </div>
+  
+  <script src="{{ url_for('static', filename= 'vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
+  
+  <script type="text/javascript">
+    // Add JavaScript code here
+    document.getElementById("updatebutton").addEventListener("click", function() {
+      document.getElementById("updateForm").style.display = "block";
+      document.getElementById("userInfo").style.display = "none";
+    });
+    
+ 
+    function changepassword(){
+        oldpass=$("#oldPassword").val()
+        newpass=$("#newPassword").val()
+        confirmpass=$("#confirmPassword").val()
+        if(oldpass.length===0||newpass.length===0||confirmpass.length===0)
+        {
+            $(".error_message").text("All fields are required.");
+            $(".error_message").show(0).delay(3000).hide(0);
+        }
+        else if(newpass!=confirmpass)
+        {
+            $(".error_message").text("New passwords are not same");
+            $(".error_message").show(0).delay(3000).hide(0);
+        }
+        else{
+            var data=new FormData();
+            data.append('oldpassword',oldpass);
+            data.append('newpassword',newpass);
+            $.ajax({
+                type:'POST',
+                enctype:'multipart/form-data',
+                url: '/changepassword',
+                processData:false,
+                cache:false,
+                timeout:800000,
+                contentType:false,
+                data:data,
+                success:function(response){
+                    var data=JSON.parse(response);
+                    if(data['status']==true){
+                        $('#success_message').text("Password Updated Successfully");
+                        $('#success_message').show(0).delay(3000).hide(0);
+                        // hide();
+                        setTimeout(function() {
+                                hideform();
+                            }, 4000);
+                    }
+                    else{
+                            $(".error_message").text("Current Password Incorrect.");
+                            $(".error_message").show(0).delay(3000).hide(0);
+                    }
+
+                }
+            })
+
+        }
+        
+    }
+
+    function hideform() {
+      document.getElementById("updateForm").reset();
+      document.getElementById("updateForm").style.display = "none";
+      document.getElementById("userInfo").style.display = "block";
+    }
+  </script>
+</body>
+</html>

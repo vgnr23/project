@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+           <div class="table_section padding_infor_info">
+              <div class="table-responsive-sm">
+                 <table class="table">
+                    <h4>{{user}}</h4>
+                    <thead>
+                       <tr>
+                          <th>Date</th>
+                          <th>Question</th>
+                          <th>Answer</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                        {% for conversation in conversations %}
+                        <tr>
+                            <td>{{ conversation.date }}</td>
+                            <td>{{ conversation.question }}</td>
+                            <td>{{ conversation.answer }}</td>
+                            <td>
+                               
+                                <div class="read_more">
+                                    <div class="center">
+                                        <button class="btn btn-danger btn-xs" onclick="deleteConversation('{{conversation._id}}')">Delete</button>
+                                    </div>
+                                 </div>
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+     </div>
+ </div> 
+ <div class="text-center">
+    <button type="button" class="btn btn-danger btn-xs" onclick="closeConversation()">Close</button>
+  </div>                   
+ <script>
+    function closeConversation() {
+  var conversationContainer = document.getElementById("conversationContainer");
+  conversationContainer.innerHTML = ""; // Clear the conversationContainer
+}
+    function deleteConversation(id){
+        var data = new FormData();
+        data.append('id', id);
+        $.ajax({
+            type: 'POST',
+            enctype: 'multipart/form-data',
+            url: '/admin/deleteConversation',
+            processData: false,
+            cache: false,
+            timeout: 800000,
+            contentType: false,
+            data: data,
+            success: function() {
+                console.log("sucess")
+                location.reload()
+            } 
+        });
+    }
+ </script>

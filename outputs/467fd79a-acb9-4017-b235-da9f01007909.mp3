@@ -1,0 +1,1 @@
+{"detail":{"status":"quota_exceeded","message":"This request exceeds your quota. You have 789 characters remaining, while 1135 characters are required for this request.","character_used":10346,"character_limit":10000}}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Admin</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- site icon -->
+      <link rel="icon" href="images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="../static/css/style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="../static/css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="../static/css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="../static/css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="../static/css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="../static/css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style>
+        /* Styles for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            background-color: #fff;
+            
+        }
+        .modal-message{
+            font-size: medium;
+
+        }
+        /* Close button style */
+        .close {
+            color: #aaa;
+            margin-left: 97%;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+       function openModal(imagePath, message) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var modalMsg = document.getElementById("modal-message");
+            modal.style.display = "block";
+            if (imagePath==""){
+                document.getElementById("img01").style.display="none"
+            }
+            else{
+                document.getElementById("img01").style.display="block"
+            }
+            modalImg.src = "../"+imagePath;    
+            
+            modalMsg.textContent = message;
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="/admin/dashboard"><img class="logo_icon img-responsive" src="../static/images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="../static/images/layout_img/user_img.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>Admin</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <ul class="list-unstyled components">
+                     <li>
+                        <a href="/admin/dashboard"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                     </li>
+                     <li><a href="/admin/feedback"><i class="fa fa-commenting-o red_color"></i> <span>Feedback</span></a></li>
+                     <li>
+                        <a href="/admin/conversation"><i class="fa fa-comments-o purple_color"></i> <span>Conversations</span></a>
+                     </li>
+                     <li><a href="/admin/manageUsers"><i class="fa fa-users blue1_color"></i> <span>Manage Users</span></a></li>
+                     
+                     <li><a href="#"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="../static/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Admin</span></a>
+                                    <div class="dropdown-menu">
+                                       <a class="dropdown-item" href="#">My Profile</a>
+                                       <a class="dropdown-item" href="#">Settings</a>
+                                       <a class="dropdown-item" href="/admin/logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Feedback</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="white_shd full margin_bottom_30">
+                               <div class="table_section padding_infor_info">
+                                  <div class="table-responsive-sm">
+                                     <table class="table">
+                                        <thead>
+                                           <tr>
+                                              <th>Id</th>
+                                              <th>Name</th>
+                                              <th>Email</th>
+                                              <th>Date</th>
+                                           </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for feedback in feedbacks %}
+                                            <tr>
+                                                <td>{{ feedback._id }}</td>
+                                                <td>{{ feedback.username }}</td>
+                                                <td>{{ feedback.email }}</td>
+                                                <td>{{ feedback.date }}</td>
+                                                <td>
+                                                    <!-- <button onclick="openModal('{{ feedback.image_path }}', '{{ feedback.message }}')">View</button> -->
+                                                    <div class="read_more">
+                                                        <div class="center">
+                                                            <button class="main_bt read_bt"onclick="openModal('{{ feedback.image_path }}', '{{ feedback.message }}')">View</button>
+                                                        </div>
+                                                     </div>
+                                                </td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                     </table>
+                                     <div id="myModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeModal()">&times;</span>
+                                            <p id="modal-message" style="font-size: medium;color: black;"></p>
+                                            <img id="img01" style="width: 75%;" alt="Feedback Image">
+                                        </div>
+                                    </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                     </div>
+
+                    
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="../static/js/jquery.min.js"></script>
+      <script src="../static/js/popper.min.js"></script>
+      <script src="../static/js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="../static/js/animate.js"></script>
+      <!-- select country -->
+      <script src="../static/js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="../static/js/owl.carousel.js"></script> 
+      <!-- chart js -->
+      <script src="../static/js/Chart.min.js"></script>
+      <script src="../static/js/Chart.bundle.min.js"></script>
+      <script src="../static/js/utils.js"></script>
+      <script src="../static/js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="../static/js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="../static/js/chart_custom_style1.js"></script>
+      <script src="../static/js/custom.js"></script>
+   </body>
+</html>
